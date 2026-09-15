@@ -1,0 +1,42 @@
+<RCC>
+    <qresource prefix="/Custom/res">
+        <file alias="PulseGCS/pulsegcs-mark.svg">res/PulseGCS/pulsegcs-mark.svg</file>
+        <file alias="PulseGCS/pulsegcs-mark-watermark.svg">res/PulseGCS/pulsegcs-mark-watermark.svg</file>
+        <file alias="PulseGCS/pulsegcs-mark-arcs.svg">res/PulseGCS/pulsegcs-mark-arcs.svg</file>
+        <file alias="PulseGCS/pulsegcs-mark-core.svg">res/PulseGCS/pulsegcs-mark-core.svg</file>
+        <file alias="PulseGCS/pulsegcs-mark-color.png">res/PulseGCS/pulsegcs-mark-color.png</file>
+        <file alias="wordmark-lockup-dark-bg.svg">res/Custom/res/wordmark-lockup-dark-bg.svg</file>
+        <file alias="wordmark-lockup-light-bg.svg">res/Custom/res/wordmark-lockup-light-bg.svg</file>
+        <file alias="QGCLogoFull.svg">res/Custom/res/QGCLogoFull.svg</file>
+        <file alias="QGCLogoArrow.svg">res/Custom/res/QGCLogoArrow.svg</file>
+        <file alias="QGCLogoWhite.svg">res/Custom/res/QGCLogoWhite.svg</file>
+        <file alias="QGCLogoWhite">res/Custom/res/QGCLogoWhite.svg</file>
+        <file alias="QGCLogoBlack.svg">res/Custom/res/QGCLogoBlack.svg</file>
+        <file alias="qgroundcontrol.ico">res/Custom/res/qgroundcontrol.ico</file>
+        <file alias="icons/pulsegcs.ico">res/icons/pulsegcs.ico</file>
+        <file alias="icons/pulsegcs.svg">res/icons/pulsegcs.svg</file>
+    </qresource>
+    <qresource prefix="/Custom/qml/PulseGCS">
+        <file alias="SplashScreen.qml">qml/PulseGCS/SplashScreen.qml</file>
+        <file alias="PulseGCSMark.qml">qml/PulseGCS/PulseGCSMark.qml</file>
+        <file alias="PulseGCSWatermark.qml">qml/PulseGCS/PulseGCSWatermark.qml</file>
+        <file alias="PulseGCSTokens.qml">qml/PulseGCS/PulseGCSTokens.qml</file>
+        <file alias="qmldir">qml/PulseGCS/qmldir</file>
+    </qresource>
+    <qresource prefix="/Custom/qml/QGroundControl">
+        <file alias="MainWindow.qml">qml/QGroundControl/MainWindow.qml</file>
+        <file alias="MainWindowSavedState.qml">qml/QGroundControl/MainWindowSavedState.qml</file>
+        <file alias="MainWindow/MainWindowSavedState.qml">qml/QGroundControl/MainWindowSavedState.qml</file>
+        <file alias="Toolbar/SelectViewDropdown.qml">qml/QGroundControl/Toolbar/SelectViewDropdown.qml</file>
+        <file alias="Controls/QGCToolBarButton.qml">qml/QGroundControl/Controls/QGCToolBarButton.qml</file>
+        <file alias="PlanView/TerrainStatus.qml">qml/QGroundControl/PlanView/TerrainStatus.qml</file>
+        <file alias="PlanView/CorridorScanMapVisual.qml">qml/QGroundControl/PlanView/CorridorScanMapVisual.qml</file>
+        <file alias="PlanView/FWLandingPatternMapVisual.qml">qml/QGroundControl/PlanView/FWLandingPatternMapVisual.qml</file>
+        <file alias="PlanView/VTOLLandingPatternMapVisual.qml">qml/QGroundControl/PlanView/VTOLLandingPatternMapVisual.qml</file>
+        <file alias="PlanView/GeoFenceMapVisuals.qml">qml/QGroundControl/PlanView/GeoFenceMapVisuals.qml</file>
+        <file alias="FlightMap/MapItems/QGCMapPolylineVisuals.qml">qml/QGroundControl/FlightMap/MapItems/QGCMapPolylineVisuals.qml</file>
+        <file alias="FlightMap/MapItems/QGCMapPolygonVisuals.qml">qml/QGroundControl/FlightMap/MapItems/QGCMapPolygonVisuals.qml</file>
+        <file alias="LogViewer/LogViewerChart.qml">qml/QGroundControl/LogViewer/LogViewerChart.qml</file>
+        <file alias="Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml">qml/QGroundControl/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml</file>
+    </qresource>
+</RCC>
