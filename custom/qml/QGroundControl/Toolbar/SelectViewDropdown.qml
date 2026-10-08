@@ -5,6 +5,8 @@ import QtQuick.Layouts
 import QGroundControl
 import QGroundControl.Controls
 
+import PulseGCS 1.0
+
 ToolIndicatorPage {
     id: root
 
@@ -91,6 +93,20 @@ ToolIndicatorPage {
             }
 
             SubMenuButton {
+                objectName: "toolbar_viewAircraft"
+                implicitHeight: root._toolButtonHeight
+                Layout.fillWidth: true
+                text: qsTr("Aircraft")
+                imageResource: "/qmlimages/PaperPlane.svg"
+                onClicked: {
+                    if (mainWindow.allowViewSwitch()) {
+                        mainWindow.closeIndicatorDrawer()
+                        mainWindow.showConnectAircraft()
+                    }
+                }
+            }
+
+            SubMenuButton {
                 id: closeButton
                 objectName: "toolbar_viewClose"
                 implicitHeight: root._toolButtonHeight
@@ -126,18 +142,9 @@ ToolIndicatorPage {
                 QGCLabel {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
-                    text: QGroundControl.qgcVersion
+                    text: qsTr("V%1").arg(PulseGCSStartupController.appVersion)
                     font.pointSize: ScreenTools.smallFontPointSize
                     wrapMode: QGCLabel.WrapAnywhere
-                }
-
-                QGCLabel {
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    text: QGroundControl.qgcAppDate
-                    font.pointSize: ScreenTools.smallFontPointSize
-                    wrapMode: QGCLabel.WrapAnywhere
-                    visible: QGroundControl.qgcDailyBuild
 
                     QGCMouseArea {
                         anchors.topMargin: -(parent.y - versionLabel.y)
