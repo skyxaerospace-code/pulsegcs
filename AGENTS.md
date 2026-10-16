@@ -93,3 +93,92 @@ commented-out code, or ambiguous TODOs.
 ---
 
 **Key Principle**: Match the style of code you're editing. See [CODING_STYLE.md](CODING_STYLE.md) for conventions and [CODING_STYLE.md#examples](CODING_STYLE.md#examples) for canonical Vehicle/Fact/QML snippets.
+
+---
+
+## Git Branching Strategy & Milestone Lifecycle Protocol
+
+Enforced across all milestones and user stories by the dedicated agent: `git_branching_strategist_Agent`.
+
+### Hierarchy & Architecture
+
+```text
+Milestone Baseline Branch (e.g. M3-US01-US11)
+  │
+  ├──► Step A: Story Dev Branch (e.g. feature/m3-us01-dev)
+  │      │
+  │      └──► Step B: Story Test Branch (e.g. test/m3-us01-test)
+  │             │
+  │             └──► Step C: Testing Verified & Cleared
+  │                    │
+  ├──◄─────────────────┴── Step D: Merge back to Milestone Baseline (M3-US01-US11)
+  │
+  ├──► Next Cycle: US02 (feature/m3-us02-dev -> test/m3-us02-test -> Merge back)
+  └──► ... repeats iteratively until the final User Story of the Milestone.
+```
+
+### Operational Rules
+
+1. **Milestone Baseline Branch**:
+   - Master umbrella branch named `<Milestone>-US01-US<N>` (e.g. `M3-US01-US11`).
+   - Direct unreviewed development on this branch is strictly prohibited.
+2. **User Story Development (`feature/<milestone>-<us_id>-dev`)**:
+   - Branch off the Milestone Baseline Branch for the specific story.
+   - All feature implementation code is isolated strictly here.
+3. **Dedicated Testing Branch (`test/<milestone>-<us_id>-test`)**:
+   - Branch off the story dev branch.
+   - Run incremental desktop and Android APK builds, unit tests, and SITL verifications.
+4. **Promotion & Merge**:
+   - Once testing passes and is cleared, merge the verified code back into the Milestone Baseline Branch.
+   - Clean up dev/test temporary branches.
+5. **Iteration**:
+   - Advance sequentially to the next user story (e.g. `US02`) and repeat the exact cycle. Zero code leakage between user stories.
+
+---
+
+## Strict Git & Governance Rules
+
+### 1. No Auto-Commit (Mandatory User Confirmation)
+- **STRICT PROHIBITION**: Antigravity, subagents, and tools MUST **NEVER auto-commit** code changes to Git on their own.
+- When development on any user story or milestone is implemented, tested, and finalized, the agent MUST present the summary of changes and **explicitly ask the user for permission** to commit.
+- Commit execution is only permitted after receiving clear, affirmative user authorization.
+
+### 2. Zero Upstream Tampering
+- All modifications MUST be isolated strictly to `custom/`.
+- Modifying files under upstream QGroundControl `src/` is strictly prohibited.
+
+---
+
+## Context Ledger & Graphify Knowledge Architecture (Out of Git & Strict Token Efficiency)
+
+Enforced universally for all agents, subagents, and sessions to eliminate redundant codebase reading and maximize token efficiency.
+
+### Core Principle
+- The Context Ledger (`.context_ledger.md`) and Graphify Knowledge Base (`.graphify_knowledge.json`) are **STRICTLY OUT OF GIT** (added to `.gitignore`). They serve exclusively as local machine/agent memory for token efficiency and must never be tracked or committed to Git.
+- Agents must **NEVER** re-read the broader codebase to understand system architecture, past decisions, or established workflows. Instead, agents must read `.context_ledger.md` and `.graphify_knowledge.json`. Full file inspection is strictly prohibited unless targeting a precise, minimal line range for an active edit.
+
+### 1. The Context Ledger (`.context_ledger.md`)
+Maintained continuously at the workspace root as a living transcript:
+* **Entry Schema**:
+  - **Timestamp & Story ID**: (e.g., `[2026-10-08 | M3-US01]`)
+  - **Action / Feature**: What was attempted, implemented, or refactored.
+  - **Failure / Iteration Log**: If a test failed, record *why* it failed, what didn't work, and the exact diff transition from old state to working state.
+  - **Verified Working State**: Clear statement of the working logic and verified behavior.
+  - **Key Files & Exact Lines**: Specific anchors so subsequent agents jump straight to the source without scanning directories.
+
+### 2. Graphify Knowledge Base (`.graphify_knowledge.json`)
+A structured relationship graph tracking components, state flow, dependencies, and rules:
+* Nodes: Components, QML views, C++ singletons, Fact groups, state variables.
+* Edges: Signals, slot bindings, data flows, and state transitions.
+* **Mandatory Graph Update**: Whenever an agent completes or modifies a feature, it must incrementally update `.graphify_knowledge.json` (and corresponding flowcharts) so future agents query the graph instead of crawling files.
+
+### 3. Agent Execution Order & Token Budget Rules
+Every agent operating in this repository **MUST** follow this strict read protocol:
+1. **First Priority**: Read `.context_ledger.md` and `.graphify_knowledge.json`.
+2. **Second Priority**: If and only if specialized information is missing, read **ONLY** the specific relevant file and line range using targeted tools (`view_file` with precise `StartLine`/`EndLine`).
+3. **Prohibited**:
+   - Never grep or read entire directories or large file trees when knowledge is already established.
+   - Never re-analyze already-solved bugs or re-examine completed user story files.
+   - Never finish a task without appending the final verified state to the Context Ledger and updating the Graphify knowledge base.
+
+
