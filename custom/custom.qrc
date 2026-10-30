@@ -7,6 +7,8 @@
         <file alias="PulseGCS/pulsegcs-mark-color.png">res/PulseGCS/pulsegcs-mark-color.png</file>
         <file alias="wordmark-lockup-dark-bg.svg">res/Custom/res/wordmark-lockup-dark-bg.svg</file>
         <file alias="wordmark-lockup-light-bg.svg">res/Custom/res/wordmark-lockup-light-bg.svg</file>
+        <file alias="pulsegcs-mark-dark-bg.svg">res/Custom/res/pulsegcs-mark-dark-bg.svg</file>
+        <file alias="pulsegcs-mark-light-bg.svg">res/Custom/res/pulsegcs-mark-light-bg.svg</file>
         <file alias="QGCLogoFull.svg">res/Custom/res/QGCLogoFull.svg</file>
         <file alias="QGCLogoArrow.svg">res/Custom/res/QGCLogoArrow.svg</file>
         <file alias="QGCLogoWhite.svg">res/Custom/res/QGCLogoWhite.svg</file>
@@ -21,12 +23,38 @@
         <file alias="PulseGCSMark.qml">qml/PulseGCS/PulseGCSMark.qml</file>
         <file alias="PulseGCSWatermark.qml">qml/PulseGCS/PulseGCSWatermark.qml</file>
         <file alias="PulseGCSTokens.qml">qml/PulseGCS/PulseGCSTokens.qml</file>
+        <file alias="ConnectAircraftPanel.qml">qml/PulseGCS/ConnectAircraftPanel.qml</file>
+        <file alias="PulseGCSStatusPill.qml">qml/PulseGCS/PulseGCSStatusPill.qml</file>
+        <file alias="PulseGCSIdentityBadge.qml">qml/PulseGCS/PulseGCSIdentityBadge.qml</file>
+        <file alias="PulseGCSSignalIndicator.qml">qml/PulseGCS/PulseGCSSignalIndicator.qml</file>
+        <file alias="PulseGCSProgressBar.qml">qml/PulseGCS/PulseGCSProgressBar.qml</file>
+        <file alias="PulseGCSRadarScanner.qml">qml/PulseGCS/PulseGCSRadarScanner.qml</file>
+        <file alias="PulseGCSStateCard.qml">qml/PulseGCS/PulseGCSStateCard.qml</file>
+        <file alias="PulseGCSDeviceRow.qml">qml/PulseGCS/PulseGCSDeviceRow.qml</file>
+        <file alias="PulseGCSReadinessHero.qml">qml/PulseGCS/PulseGCSReadinessHero.qml</file>
+        <file alias="PulseGCSReadinessCheck.qml">qml/PulseGCS/PulseGCSReadinessCheck.qml</file>
+        <file alias="PulseGCSActionableIssue.qml">qml/PulseGCS/PulseGCSActionableIssue.qml</file>
+        <file alias="PulseGCSNoticeBar.qml">qml/PulseGCS/PulseGCSNoticeBar.qml</file>
+        <file alias="PulseGCSReadinessSummary.qml">qml/PulseGCS/PulseGCSReadinessSummary.qml</file>
+        <file alias="PulseGCSReconnectBanner.qml">qml/PulseGCS/PulseGCSReconnectBanner.qml</file>
+        <file alias="PulseGCSSignInView.qml">qml/PulseGCS/PulseGCSSignInView.qml</file>
+        <file alias="PulseGCSAuthValidator.qml">qml/PulseGCS/PulseGCSAuthValidator.qml</file>
+        <file alias="PulseGCSPasswordField.qml">qml/PulseGCS/PulseGCSPasswordField.qml</file>
+        <file alias="PulseGCSSignInCard.qml">qml/PulseGCS/PulseGCSSignInCard.qml</file>
+        <file alias="PulseGCSRegistrationCard.qml">qml/PulseGCS/PulseGCSRegistrationCard.qml</file>
+        <file alias="PulseGCSDateField.qml">qml/PulseGCS/PulseGCSDateField.qml</file>
+        <file alias="PulseGCSRecoveryCard.qml">qml/PulseGCS/PulseGCSRecoveryCard.qml</file>
+        <file alias="PulseGCSAuthService.qml">qml/PulseGCS/PulseGCSAuthService.qml</file>
+        <file alias="PulseGCSCircularLoader.qml">qml/PulseGCS/PulseGCSCircularLoader.qml</file>
+        <file alias="PulseGCSDemoModeManager.qml">qml/PulseGCS/PulseGCSDemoModeManager.qml</file>
+        <file alias="PulseGCSDemoBanner.qml">qml/PulseGCS/PulseGCSDemoBanner.qml</file>
         <file alias="qmldir">qml/PulseGCS/qmldir</file>
     </qresource>
     <qresource prefix="/Custom/qml/QGroundControl">
         <file alias="MainWindow.qml">qml/QGroundControl/MainWindow.qml</file>
         <file alias="MainWindowSavedState.qml">qml/QGroundControl/MainWindowSavedState.qml</file>
         <file alias="MainWindow/MainWindowSavedState.qml">qml/QGroundControl/MainWindowSavedState.qml</file>
+        <file alias="Toolbar/MainStatusIndicator.qml">qml/QGroundControl/Toolbar/MainStatusIndicator.qml</file>
         <file alias="Toolbar/SelectViewDropdown.qml">qml/QGroundControl/Toolbar/SelectViewDropdown.qml</file>
         <file alias="Controls/QGCToolBarButton.qml">qml/QGroundControl/Controls/QGCToolBarButton.qml</file>
         <file alias="PlanView/TerrainStatus.qml">qml/QGroundControl/PlanView/TerrainStatus.qml</file>
@@ -38,5 +66,12 @@
         <file alias="FlightMap/MapItems/QGCMapPolygonVisuals.qml">qml/QGroundControl/FlightMap/MapItems/QGCMapPolygonVisuals.qml</file>
         <file alias="LogViewer/LogViewerChart.qml">qml/QGroundControl/LogViewer/LogViewerChart.qml</file>
         <file alias="Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml">qml/QGroundControl/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml</file>
+    </qresource>
+    <qresource prefix="/Custom/telemetry">
+        <file alias="demo_flight.tlog">resources/telemetry/demo_flight.tlog</file>
+        <file alias="demo_mission.plan">resources/telemetry/demo_mission.plan</file>
+    </qresource>
+    <qresource prefix="/Custom/data/mock">
+        <file alias="auth_database.json">data/mock/auth_database.json</file>
     </qresource>
 </RCC>

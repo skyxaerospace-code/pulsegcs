@@ -2,3 +2,30 @@ module PulseGCS
 PulseGCSMark 1.0 PulseGCSMark.qml
 PulseGCSWatermark 1.0 PulseGCSWatermark.qml
 singleton PulseGCSTokens 1.0 PulseGCSTokens.qml
+SplashScreen 1.0 SplashScreen.qml
+ConnectAircraftPanel 1.0 ConnectAircraftPanel.qml
+PulseGCSStatusPill 1.0 PulseGCSStatusPill.qml
+PulseGCSIdentityBadge 1.0 PulseGCSIdentityBadge.qml
+PulseGCSSignalIndicator 1.0 PulseGCSSignalIndicator.qml
+PulseGCSProgressBar 1.0 PulseGCSProgressBar.qml
+PulseGCSRadarScanner 1.0 PulseGCSRadarScanner.qml
+PulseGCSStateCard 1.0 PulseGCSStateCard.qml
+PulseGCSDeviceRow 1.0 PulseGCSDeviceRow.qml
+PulseGCSReadinessHero 1.0 PulseGCSReadinessHero.qml
+PulseGCSReadinessCheck 1.0 PulseGCSReadinessCheck.qml
+PulseGCSActionableIssue 1.0 PulseGCSActionableIssue.qml
+PulseGCSNoticeBar 1.0 PulseGCSNoticeBar.qml
+PulseGCSReadinessSummary 1.0 PulseGCSReadinessSummary.qml
+PulseGCSReconnectBanner 1.0 PulseGCSReconnectBanner.qml
+PulseGCSDateField 1.0 PulseGCSDateField.qml
+PulseGCSSignInView 1.0 PulseGCSSignInView.qml
+singleton PulseGCSAuthValidator 1.0 PulseGCSAuthValidator.qml
+PulseGCSPasswordField 1.0 PulseGCSPasswordField.qml
+PulseGCSSignInCard 1.0 PulseGCSSignInCard.qml
+PulseGCSRegistrationCard 1.0 PulseGCSRegistrationCard.qml
+PulseGCSRecoveryCard 1.0 PulseGCSRecoveryCard.qml
+PulseGCSAuthService 1.0 PulseGCSAuthService.qml
+PulseGCSCircularLoader 1.0 PulseGCSCircularLoader.qml
+singleton PulseGCSDemoModeManager 1.0 PulseGCSDemoModeManager.qml
+PulseGCSDemoBanner 1.0 PulseGCSDemoBanner.qml
+

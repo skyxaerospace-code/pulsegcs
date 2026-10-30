@@ -5,10 +5,13 @@ import QtQuick.Layouts
 import QGroundControl
 import QGroundControl.Controls
 
+import PulseGCS 1.0
+
 ToolIndicatorPage {
     id: root
 
     property real _toolButtonHeight: ScreenTools.defaultFontPixelHeight * 3
+    readonly property bool _isOffline: !PulseGCSDemoModeManager.isDemoModeActive && (QGroundControl.multiVehicleManager.activeVehicle === null)
 
     contentComponent: Component {
         GridLayout {
@@ -50,7 +53,7 @@ ToolIndicatorPage {
                 Layout.fillWidth: true
                 text: qsTr("Analyze")
                 imageResource: "/qmlimages/Analyze.svg"
-                visible: QGroundControl.corePlugin.showAdvancedUI
+                visible: !_isOffline && QGroundControl.corePlugin.showAdvancedUI
                 onClicked: {
                     if (mainWindow.allowViewSwitch()) {
                         mainWindow.closeIndicatorDrawer()
@@ -66,6 +69,7 @@ ToolIndicatorPage {
                 Layout.fillWidth: true
                 text: qsTr("Configure")
                 imageResource: "/res/GearWithPaperPlane.svg"
+                visible: !_isOffline
                 onClicked: {
                     if (mainWindow.allowViewSwitch()) {
                         mainWindow.closeIndicatorDrawer()
@@ -86,6 +90,39 @@ ToolIndicatorPage {
                     if (mainWindow.allowViewSwitch()) {
                         mainWindow.closeIndicatorDrawer()
                         mainWindow.showSettingsTool()
+                    }
+                }
+            }
+
+            SubMenuButton {
+                objectName: "toolbar_viewAircraft"
+                implicitHeight: root._toolButtonHeight
+                Layout.fillWidth: true
+                text: qsTr("Aircraft")
+                imageResource: "/qmlimages/PaperPlane.svg"
+                onClicked: {
+                    if (mainWindow.allowViewSwitch()) {
+                        mainWindow.closeIndicatorDrawer()
+                        mainWindow.showConnectAircraft()
+                    }
+                }
+            }
+
+            SubMenuButton {
+                id: signOutButton
+                objectName: "toolbar_viewSignOut"
+                implicitHeight: root._toolButtonHeight
+                Layout.fillWidth: true
+                text: qsTr("Sign Out")
+                imageResource: "/qmlimages/Disconnect.svg"
+                onClicked: {
+                    if (mainWindow.allowViewSwitch()) {
+                        mainWindow.closeIndicatorDrawer()
+                        if (typeof PulseGCSStartupController !== "undefined" && PulseGCSStartupController) {
+                            PulseGCSStartupController.clearSession()
+                        }
+                        mainWindow.userAuthenticated = false
+                        mainWindow.showSignIn()
                     }
                 }
             }
@@ -126,18 +163,9 @@ ToolIndicatorPage {
                 QGCLabel {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
-                    text: QGroundControl.qgcVersion
+                    text: qsTr("V%1").arg(PulseGCSStartupController.appVersion)
                     font.pointSize: ScreenTools.smallFontPointSize
                     wrapMode: QGCLabel.WrapAnywhere
-                }
-
-                QGCLabel {
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    text: QGroundControl.qgcAppDate
-                    font.pointSize: ScreenTools.smallFontPointSize
-                    wrapMode: QGCLabel.WrapAnywhere
-                    visible: QGroundControl.qgcDailyBuild
 
                     QGCMouseArea {
                         anchors.topMargin: -(parent.y - versionLabel.y)
